@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { supabase } from "./supabaseClient";
 import "./App.css";
+import "./design.css";
 
 function toTitleCase(value) {
   return String(value || "")
@@ -71,19 +72,96 @@ function normalizeLeadFromSupabase(lead) {
   };
 }
 
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <div className="brand">
+        <Link to="/">North Image Financial</Link>
+      </div>
+
+      <ul className="navLinks">
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/services">Services</NavLink>
+        </li>
+        <li>
+          <NavLink to="/agents">Agents</NavLink>
+        </li>
+        <li>
+          <NavLink to="/about">About</NavLink>
+        </li>
+        <li>
+          <NavLink to="/quote">Get Quote</NavLink>
+        </li>
+        <li>
+          <NavLink to="/dashboard" className="adminLink">
+            Admin
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footerInner">
+        <div className="footerBrand">
+          <span className="footerLogo">North Image Financial</span>
+          <p>
+            Independent life insurance agency based in Vancouver, WA. Licensed
+            across all of Washington State. 30+ A and A+ rated carriers.
+          </p>
+        </div>
+
+        <div className="footerAgents">
+          <span className="footerAgentsLabel">Our Agents</span>
+          <div className="footerAgentRow">
+            <strong>Colby Lutz</strong>
+            <a href="tel:3609913360">(360) 991-3360</a>
+          </div>
+          <div className="footerAgentRow">
+            <strong>Tre Blake</strong>
+            <a href="tel:3607844205">(360) 784-4205</a>
+          </div>
+        </div>
+
+        <div className="footerNav">
+          <span className="footerNavLabel">Navigate</span>
+          <Link to="/">Home</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/agents">Agents</Link>
+          <Link to="/about">About</Link>
+          <Link to="/quote">Get Quote</Link>
+        </div>
+      </div>
+
+      <div className="footerBottom">
+        <p>
+          &copy; {new Date().getFullYear()} North Image Financial. Licensed
+          across Washington State.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
 function Home() {
   return (
     <>
       <section className="hero">
         <div className="heroContent">
           <div className="heroText">
-            <div className="pill">Licensed in Washington & Texas</div>
+            <div className="pill">Licensed across Washington State</div>
 
-            <h1>Life insurance without the pressure or confusion.</h1>
+            <h1>Independent life insurance guidance for Washington families.</h1>
 
             <p>
-              Compare options from multiple carriers with Colby Lutz, a local
-              life insurance broker based near Vancouver, WA.
+              Compare options from 30+ A-rated carriers with our independent
+              team based in Vancouver, WA. No pressure, no obligation.
             </p>
 
             <div className="heroActions">
@@ -91,31 +169,49 @@ function Home() {
                 Request Options
               </Link>
 
-              <a href="tel:3609913360" className="button secondaryButton">
-                Call/Text 360-991-3360
-              </a>
+              <Link to="/agents" className="button secondaryButton">
+                Meet Our Agents
+              </Link>
             </div>
 
             <div className="trustGrid">
               <div>
-                <strong>Multiple</strong>
-                <span>Carrier options</span>
+                <strong>30+</strong>
+                <span>A-Rated Carriers</span>
+              </div>
+              <div>
+                <strong>All WA</strong>
+                <span>State Licensed</span>
               </div>
               <div>
                 <strong>No</strong>
-                <span>Obligation quotes</span>
-              </div>
-              <div>
-                <strong>Local</strong>
-                <span>Vancouver, WA broker</span>
+                <span>Obligation Quotes</span>
               </div>
             </div>
           </div>
 
           <div className="heroPanel">
-            <div className="profileBadge">CL</div>
-            <h2>Colby Lutz</h2>
-            <p>Licensed Life Insurance Broker</p>
+            <span className="heroPanelLabel">Your Agents</span>
+
+            <div className="heroPanelAgents">
+              <div className="heroPanelAgent">
+                <div className="profileBadge">CL</div>
+                <div>
+                  <h3>Colby Lutz</h3>
+                  <p>Licensed Agent</p>
+                  <a href="tel:3609913360">(360) 991-3360</a>
+                </div>
+              </div>
+
+              <div className="heroPanelAgent">
+                <div className="profileBadge">TB</div>
+                <div>
+                  <h3>Tre Blake</h3>
+                  <p>Licensed Agent</p>
+                  <a href="tel:3607844205">(360) 784-4205</a>
+                </div>
+              </div>
+            </div>
 
             <div className="panelList">
               <span>Term Life</span>
@@ -136,8 +232,8 @@ function Home() {
           <span className="label">How it works</span>
           <h2>Simple process. Straight answers.</h2>
           <p>
-            You do not need to know exactly what policy you want. That is what I
-            help with.
+            You do not need to know exactly what policy you want. That is what
+            we help with.
           </p>
         </div>
 
@@ -145,25 +241,25 @@ function Home() {
           <div className="step">
             <span>01</span>
             <h3>Submit your request</h3>
-            <p>Share the basics so I know what kind of coverage you need.</p>
+            <p>Share the basics so we know what kind of coverage you need.</p>
           </div>
 
           <div className="step">
             <span>02</span>
-            <h3>I compare options</h3>
-            <p>I look through available options from multiple carriers.</p>
+            <h3>We compare options</h3>
+            <p>We look through available options from 30+ carriers.</p>
           </div>
 
           <div className="step">
             <span>03</span>
             <h3>You review choices</h3>
-            <p>I explain the options in normal language, not insurance talk.</p>
+            <p>We explain the options in plain language, not insurance talk.</p>
           </div>
 
           <div className="step">
             <span>04</span>
             <h3>You decide</h3>
-            <p>No pressure. Move forward only if it makes sense.</p>
+            <p>No pressure. Move forward only if it makes sense for you.</p>
           </div>
         </div>
       </section>
@@ -191,7 +287,7 @@ function Home() {
       <section className="section lightSection">
         <div className="sectionHeader">
           <span className="label">Coverage options</span>
-          <h2>Options I can help you compare.</h2>
+          <h2>Options we can help you compare.</h2>
         </div>
 
         <div className="cardsGrid">
@@ -219,19 +315,22 @@ function Home() {
 
       <section className="aboutStrip">
         <div>
-          <span className="label">About Colby</span>
-          <h2>Local help from a real person.</h2>
+          <span className="label">About NIF</span>
+          <h2>Local help from a real team.</h2>
           <p>
-            I’m Colby Lutz, a licensed life insurance broker based near
-            Vancouver, Washington. I help families compare coverage without
+            North Image Financial is an independent life insurance agency based
+            in Vancouver, Washington. We help families compare coverage without
             pressure or confusing policy language.
           </p>
         </div>
 
         <div className="contactCard">
-          <h3>Ask me a question</h3>
-          <p>Call or text anytime and I’ll get back as soon as possible.</p>
-          <a href="tel:3609913360">360-991-3360</a>
+          <h3>Talk to an agent</h3>
+          <p>
+            Call or text anytime and we will follow up as soon as possible.
+          </p>
+          <a href="tel:3609913360">Colby — (360) 991-3360</a>
+          <a href="tel:3607844205">Tre — (360) 784-4205</a>
           <Link to="/quote">Request Options</Link>
         </div>
       </section>
@@ -240,7 +339,7 @@ function Home() {
 
       <section className="ctaSection">
         <h2>Want to see what you qualify for?</h2>
-        <p>Submit a quick request and I’ll follow up with options.</p>
+        <p>Submit a quick request and we will follow up with options.</p>
         <Link to="/quote" className="button primaryButton">
           Start Quote Request
         </Link>
@@ -250,11 +349,13 @@ function Home() {
 }
 
 function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   const faqs = [
     {
       question: "How much does life insurance cost?",
       answer:
-        "It depends on your age, health, tobacco use, coverage amount, and policy type. A quick request gives me enough info to start comparing options."
+        "It depends on your age, health, tobacco use, coverage amount, and policy type. A quick request gives us enough info to start comparing options."
     },
     {
       question: "Do I need a medical exam?",
@@ -279,7 +380,7 @@ function FAQ() {
     {
       question: "Term or whole life?",
       answer:
-        "Term is usually cheaper and lasts for a set period. Whole life is permanent and can build cash value."
+        "Term is usually cheaper and lasts for a set period. Whole life is permanent and can build cash value. We can walk you through the differences."
     }
   ];
 
@@ -291,12 +392,78 @@ function FAQ() {
       </div>
 
       <div className="faqList">
-        {faqs.map(item => (
-          <details key={item.question}>
-            <summary>{item.question}</summary>
-            <p>{item.answer}</p>
-          </details>
+        {faqs.map((item, index) => (
+          <div
+            key={item.question}
+            className={`faqItem${openIndex === index ? " faqOpen" : ""}`}
+          >
+            <button
+              className="faqQuestion"
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            >
+              <span>{item.question}</span>
+              <span className="faqIcon">{openIndex === index ? "−" : "+"}</span>
+            </button>
+
+            {openIndex === index && (
+              <div className="faqAnswer">
+                <p>{item.answer}</p>
+              </div>
+            )}
+          </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function Agents() {
+  return (
+    <section className="pageSection agentsPage">
+      <span className="label">Our Team</span>
+      <h1>Meet Your Agents</h1>
+      <p>
+        North Image Financial is an independent agency based in Vancouver, WA.
+        Our agents work with 30+ A and A+ rated carriers to find the right
+        coverage for your situation — without the pressure of a captive agent.
+      </p>
+
+      <div className="agentCards">
+        <div className="agentCard">
+          <div className="agentBadge">CL</div>
+
+          <div className="agentInfo">
+            <h2>Colby Lutz</h2>
+            <p className="agentTitle">Licensed Life Insurance Agent</p>
+            <p className="agentLocation">
+              Vancouver, WA &middot; Licensed across Washington State
+            </p>
+            <a href="tel:3609913360" className="agentPhone">
+              (360) 991-3360
+            </a>
+            <Link to="/quote" className="button primaryButton">
+              Request a Quote
+            </Link>
+          </div>
+        </div>
+
+        <div className="agentCard">
+          <div className="agentBadge">TB</div>
+
+          <div className="agentInfo">
+            <h2>Tre Blake</h2>
+            <p className="agentTitle">Licensed Life Insurance Agent</p>
+            <p className="agentLocation">
+              Vancouver, WA &middot; Licensed across Washington State
+            </p>
+            <a href="tel:3607844205" className="agentPhone">
+              (360) 784-4205
+            </a>
+            <Link to="/quote" className="button primaryButton">
+              Request a Quote
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -352,27 +519,27 @@ function Services() {
 function About() {
   return (
     <section className="pageSection narrow">
-      <span className="label">About Colby</span>
-      <h1>Real help from a local broker.</h1>
+      <span className="label">About Us</span>
+      <h1>Real help from a local team.</h1>
 
       <p>
-        I help families in Washington and Texas compare life insurance options
+        We help families across Washington State compare life insurance options
         without overcomplicating the process.
       </p>
 
       <p>
-        Instead of pushing one company or one product, I help you understand
+        Instead of pushing one company or one product, we help you understand
         what type of coverage fits your situation.
       </p>
 
       <div className="serviceItem">
-        <h2>What I help with</h2>
+        <h2>What we help with</h2>
         <ul>
           <li>Term life insurance</li>
           <li>Whole life insurance</li>
           <li>Final expense coverage</li>
           <li>Mortgage protection</li>
-          <li>Comparing options from multiple carriers</li>
+          <li>Comparing options from 30+ carriers</li>
         </ul>
       </div>
     </section>
@@ -392,6 +559,7 @@ function QuoteForm() {
     coverageAmount: "",
     tobaccoUse: "",
     bestTimeToCall: "",
+    preferredAgent: "",
     consentGiven: false,
     source: "Website"
   });
@@ -449,6 +617,10 @@ function QuoteForm() {
     const lastName = toTitleCase(formData.lastName);
     const fullName = `${firstName} ${lastName}`.trim();
 
+    const agentNote = formData.preferredAgent
+      ? `Preferred agent: ${formData.preferredAgent}.`
+      : "No agent preference specified.";
+
     try {
       const { error: supabaseError } = await supabase.from("leads").insert([
         {
@@ -466,7 +638,7 @@ function QuoteForm() {
           tobacco_use: formData.tobaccoUse,
           best_time_to_call: formData.bestTimeToCall,
           status: "New",
-          imported_info: `Submitted from lead request website. Coverage goal: ${formData.coverageAmount}. Tobacco use: ${formData.tobaccoUse}. Best time to call: ${formData.bestTimeToCall}. Consent given: Yes.`,
+          imported_info: `Submitted from North Image Financial Website. Coverage goal: ${formData.coverageAmount}. Tobacco use: ${formData.tobaccoUse}. Best time to call: ${formData.bestTimeToCall}. ${agentNote} Consent given: Yes.`,
           notes: ""
         }
       ]);
@@ -487,6 +659,7 @@ function QuoteForm() {
         coverageAmount: "",
         tobaccoUse: "",
         bestTimeToCall: "",
+        preferredAgent: "",
         consentGiven: false,
         source: "Website"
       });
@@ -507,7 +680,7 @@ function QuoteForm() {
       <section className="quoteHero">
         <span className="label lightLabel">Free Quote Request</span>
         <h1>See what options may fit your family.</h1>
-        <p>No obligation. No pressure. I’ll follow up with next steps.</p>
+        <p>No obligation. No pressure. We will follow up with next steps.</p>
       </section>
 
       <section className="quoteLayout">
@@ -516,12 +689,15 @@ function QuoteForm() {
             <div className="successMessage">
               <h3>Request received.</h3>
               <p>Your quote request was submitted successfully.</p>
-              <p>Colby will follow up soon.</p>
-              <a href="tel:3609913360">Call or text 360-991-3360</a>
+              <p>An agent will follow up with you shortly.</p>
+              <div className="successAgents">
+                <a href="tel:3609913360">Colby Lutz — (360) 991-3360</a>
+                <a href="tel:3607844205">Tre Blake — (360) 784-4205</a>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <h3>Tell me where to send your options</h3>
+              <h3>Tell us where to send your options</h3>
 
               <div className="formRow">
                 <div className="formGroup">
@@ -568,7 +744,7 @@ function QuoteForm() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(360) 991-3360"
+                    placeholder="(360) 000-0000"
                     required
                   />
                 </div>
@@ -598,7 +774,6 @@ function QuoteForm() {
                   >
                     <option value="">Select State</option>
                     <option value="WA">Washington</option>
-                    <option value="TX">Texas</option>
                   </select>
                 </div>
               </div>
@@ -661,6 +836,20 @@ function QuoteForm() {
                     <option value="Anytime">Anytime</option>
                   </select>
                 </div>
+
+                <div className="formGroup">
+                  <label htmlFor="preferredAgent">Preferred Agent</label>
+                  <select
+                    id="preferredAgent"
+                    name="preferredAgent"
+                    value={formData.preferredAgent}
+                    onChange={handleChange}
+                  >
+                    <option value="">No preference</option>
+                    <option value="Colby Lutz">Colby Lutz</option>
+                    <option value="Tre Blake">Tre Blake</option>
+                  </select>
+                </div>
               </div>
 
               <div className="consentBox">
@@ -674,8 +863,8 @@ function QuoteForm() {
                 />
 
                 <label htmlFor="consentGiven">
-                  By checking this box, I agree that Lutz Life Insurance and its
-                  agents may call, text, or email me about life insurance
+                  By checking this box, I agree that North Image Financial and
+                  its agents may call, text, or email me about life insurance
                   options. Message and data rates may apply. I can opt out at
                   any time by replying STOP or requesting to unsubscribe.
                 </label>
@@ -691,10 +880,11 @@ function QuoteForm() {
         </div>
 
         <aside className="sideCard">
-          <h3>Prefer texting?</h3>
-          <p>Text Colby directly and ask your question.</p>
-          <a href="tel:3609913360">360-991-3360</a>
-          <span>Serving Washington & Texas</span>
+          <h3>Prefer to call?</h3>
+          <p>Reach either agent directly.</p>
+          <a href="tel:3609913360">Colby — (360) 991-3360</a>
+          <a href="tel:3607844205">Tre — (360) 784-4205</a>
+          <span>Serving Washington State</span>
         </aside>
       </section>
     </>
@@ -836,7 +1026,7 @@ function Dashboard() {
     const link = document.createElement("a");
 
     link.href = url;
-    link.download = "lutz-life-leads.csv";
+    link.download = "north-image-financial-leads.csv";
     link.click();
 
     URL.revokeObjectURL(url);
@@ -875,7 +1065,7 @@ function Dashboard() {
   return (
     <>
       <section className="dashboardHero">
-        <span className="label lightLabel">Admin</span>
+        <span className="label lightLabel">North Image Financial</span>
         <h1>Lead Dashboard</h1>
         <p>Track quote requests, notes, follow-ups, and lead status.</p>
 
@@ -1026,36 +1216,6 @@ function Dashboard() {
   );
 }
 
-function Navbar() {
-  return (
-    <nav className="navbar">
-      <div className="brand">
-        <Link to="/">Lutz Life</Link>
-      </div>
-
-      <ul className="navLinks">
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/services">Services</NavLink>
-        </li>
-        <li>
-          <NavLink to="/about">About</NavLink>
-        </li>
-        <li>
-          <NavLink to="/quote">Get Quote</NavLink>
-        </li>
-        <li>
-          <NavLink to="/dashboard" className="adminLink">
-            Admin
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
-  );
-}
-
 export default function App() {
   return (
     <Router>
@@ -1068,7 +1228,10 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
+          <Route path="/agents" element={<Agents />} />
         </Routes>
+
+        <Footer />
       </div>
     </Router>
   );

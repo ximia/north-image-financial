@@ -1,0 +1,812 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+/* ── Tokens ── */
+:root {
+  --gold: #c9a84c;
+  --gold-hover: #b8923e;
+  --gold-faint: rgba(201, 168, 76, 0.10);
+  --navy: #0d1b2e;
+  --charcoal: #1a2535;
+  --off-white: #f8f7f4;
+  --ink: #1a1a2e;
+  --muted: #64748b;
+  --line: #e2ddd5;
+  --radius: 3px;
+  --radius-md: 6px;
+}
+
+/* ── Base ── */
+body {
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  background: var(--off-white);
+  background-image: none;
+  color: var(--ink);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+}
+
+/* ── Navbar ── */
+.navbar {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 48px;
+  background: var(--navy);
+  border: none;
+  border-radius: 0;
+  backdrop-filter: none;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 12px rgba(0, 0, 0, 0.35);
+  min-height: 64px;
+  top: 0;
+}
+
+.brand a {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding-left: 0;
+}
+
+.navLinks a {
+  color: rgba(255, 255, 255, 0.68);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius);
+  min-height: 36px;
+}
+
+.navLinks a:hover,
+.navLinks a.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--gold);
+}
+
+.navLinks .adminLink {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.navLinks .adminLink:hover,
+.navLinks .adminLink.active {
+  background: var(--gold-hover);
+  color: var(--navy);
+}
+
+/* ── Hero ── */
+.hero {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  padding: 88px 64px 104px;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(160deg, var(--navy) 0%, var(--charcoal) 60%, #101e33 100%);
+  background-size: 28px 28px, 100% 100%;
+  box-shadow: none;
+  color: white;
+}
+
+.heroContent {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.heroText h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 18px 0 22px;
+  max-width: 660px;
+}
+
+.heroText p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 560px;
+}
+
+/* ── Labels & Pills ── */
+.pill,
+.label {
+  background: var(--gold-faint);
+  color: var(--gold);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.lightLabel {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* ── Buttons ── */
+.button {
+  border-radius: var(--radius-md);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.primaryButton {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.28);
+}
+
+.primaryButton:hover {
+  background: var(--gold-hover);
+  box-shadow: 0 6px 22px rgba(201, 168, 76, 0.38);
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.10);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.17);
+}
+
+.panelButton {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.panelButton:hover {
+  background: var(--gold-hover);
+}
+
+/* ── Trust Grid ── */
+.trustGrid div {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--radius-md);
+}
+
+.trustGrid strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  display: block;
+}
+
+.trustGrid span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Hero Panel ── */
+.heroPanel {
+  background: #fff;
+  color: var(--navy);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+.heroPanelLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.heroPanelAgents {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.heroPanelAgent {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px;
+  background: var(--off-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.heroPanelAgent h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem;
+  color: var(--navy);
+  margin-bottom: 1px;
+  line-height: 1.2;
+}
+
+.heroPanelAgent p {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.heroPanelAgent a {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.profileBadge {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: var(--radius-md);
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0;
+  display: grid;
+  place-items: center;
+}
+
+.heroPanel .panelList span {
+  background: var(--off-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── Section headings ── */
+.sectionHeader h2,
+.splitSection h2,
+.aboutStrip h2,
+.pageSection h1,
+.ctaSection h2 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+/* ── Cards ── */
+.step,
+.infoCard,
+.serviceItem,
+.formCard,
+.sideCard,
+.leadCard,
+.contactCard {
+  border-radius: var(--radius-md);
+}
+
+.step,
+.infoCard,
+.serviceItem {
+  border-top: 3px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step:hover,
+.infoCard:hover,
+.serviceItem:hover {
+  border-top-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
+}
+
+.step span {
+  color: var(--gold);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.step h3,
+.infoCard h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+}
+
+.serviceItem h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ── Tag cloud ── */
+.tagCloud span {
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+/* ── FAQ Accordion ── */
+.faqList {
+  display: grid;
+  gap: 10px;
+}
+
+.faqItem {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  gap: 16px;
+  transition: background 0.15s ease;
+}
+
+.faqQuestion:hover {
+  background: #fafaf8;
+}
+
+.faqOpen .faqQuestion {
+  color: var(--gold);
+}
+
+.faqIcon {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--gold);
+  flex-shrink: 0;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1;
+}
+
+.faqAnswer {
+  padding: 0 22px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.faqAnswer p {
+  color: var(--muted);
+  padding-top: 14px;
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
+}
+
+/* ── Agents page ── */
+.agentsPage {
+  max-width: 900px;
+}
+
+.agentsPage > p {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 680px;
+}
+
+.agentCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.agentCard {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.agentCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09);
+}
+
+.agentBadge {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: var(--radius-md);
+  background: var(--navy);
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+.agentInfo h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.agentTitle {
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 4px !important;
+}
+
+.agentLocation {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 16px !important;
+}
+
+.agentPhone {
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.15s;
+}
+
+.agentPhone:hover {
+  color: var(--gold);
+}
+
+.agentInfo .button {
+  display: inline-flex;
+  min-height: 40px;
+  padding: 0 20px;
+  font-size: 0.88rem;
+}
+
+/* ── Contact card (About strip) ── */
+.contactCard {
+  background: var(--navy);
+  border-radius: var(--radius-md);
+}
+
+.contactCard h3 {
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+
+.contactCard p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.contactCard a {
+  display: block;
+  color: var(--gold) !important;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 8px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.contactCard a:hover {
+  color: var(--gold-hover) !important;
+}
+
+/* ── CTA section ── */
+.ctaSection {
+  background:
+    radial-gradient(circle at top right, rgba(201, 168, 76, 0.14), transparent 40%),
+    var(--navy);
+  border-radius: var(--radius-md);
+}
+
+/* ── Quote hero / Dashboard hero ── */
+.quoteHero,
+.dashboardHero {
+  border-radius: var(--radius-md);
+  margin-top: 48px;
+  background:
+    radial-gradient(circle at top right, rgba(201, 168, 76, 0.10), transparent 40%),
+    linear-gradient(160deg, var(--navy) 0%, var(--charcoal) 100%);
+}
+
+.quoteHero h1,
+.dashboardHero h1 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+/* ── Form card ── */
+.formCard {
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius-md);
+}
+
+.formCard h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+}
+
+.formGroup input,
+.formGroup select,
+.filters input,
+.filters select,
+.leadControls input,
+.leadControls select,
+.notes textarea {
+  border-radius: var(--radius-md);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.filters input:focus,
+.filters select:focus,
+.leadControls input:focus,
+.leadControls select:focus,
+.notes textarea:focus {
+  outline: 3px solid rgba(201, 168, 76, 0.18);
+  border-color: var(--gold);
+}
+
+.consentBox {
+  background: #faf9f7;
+  border-color: var(--line);
+  border-radius: var(--radius-md);
+}
+
+.submitButton {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+}
+
+.submitButton:hover {
+  background: var(--gold-hover);
+}
+
+.submitButton:disabled {
+  background: #c0b89a;
+  color: rgba(13, 27, 46, 0.45);
+}
+
+/* ── Side card ── */
+.sideCard {
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius-md);
+}
+
+.sideCard h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.sideCard a {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  margin: 6px 0;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.15s;
+}
+
+.sideCard a:hover {
+  color: var(--gold);
+}
+
+.sideCard span {
+  background: rgba(201, 168, 76, 0.10);
+  color: var(--gold);
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  border-radius: var(--radius);
+}
+
+/* ── Success message ── */
+.successMessage h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.successAgents {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.successAgents a {
+  display: block !important;
+  font-weight: 600;
+  color: var(--navy) !important;
+  text-decoration: none;
+  padding: 13px 16px;
+  background: var(--off-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.successAgents a:hover {
+  border-color: var(--gold);
+  color: var(--gold) !important;
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footerInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 32px 48px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 56px;
+}
+
+.footerLogo {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footerBrand p {
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.footerAgentsLabel,
+.footerNavLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footerAgentRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+
+.footerAgentRow strong {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.footerAgentRow a {
+  color: rgba(255, 255, 255, 0.48);
+  text-decoration: none;
+  font-size: 0.87rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.15s;
+}
+
+.footerAgentRow a:hover {
+  color: var(--gold);
+}
+
+.footerNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerNav a {
+  color: rgba(255, 255, 255, 0.48);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 5px 0;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.15s;
+}
+
+.footerNav a:hover {
+  color: var(--gold);
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 20px 32px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.footerBottom p {
+  font-size: 0.79rem;
+  color: rgba(255, 255, 255, 0.28);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Dashboard ── */
+.dashboardButtons button {
+  border-radius: var(--radius-md);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+
+.leadCard {
+  border-radius: var(--radius-md);
+}
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+  .agentCards {
+    grid-template-columns: 1fr;
+  }
+
+  .footerInner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footerBrand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 52px 24px 72px;
+  }
+
+  .agentCard {
+    flex-direction: column;
+  }
+
+  .footerInner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 24px 36px;
+  }
+
+  .footerBottom {
+    padding: 16px 24px;
+  }
+}
