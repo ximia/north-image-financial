@@ -559,7 +559,6 @@ function QuoteForm() {
     coverageAmount: "",
     tobaccoUse: "",
     bestTimeToCall: "",
-    preferredAgent: "",
     consentGiven: false,
     source: "Website"
   });
@@ -617,9 +616,6 @@ function QuoteForm() {
     const lastName = toTitleCase(formData.lastName);
     const fullName = `${firstName} ${lastName}`.trim();
 
-    const agentNote = formData.preferredAgent
-      ? `Preferred agent: ${formData.preferredAgent}.`
-      : "No agent preference specified.";
 
     try {
       const { error: supabaseError } = await supabase.from("leads").insert([
@@ -638,7 +634,7 @@ function QuoteForm() {
           tobacco_use: formData.tobaccoUse,
           best_time_to_call: formData.bestTimeToCall,
           status: "New",
-          imported_info: `Submitted from North Image Financial Website. Coverage goal: ${formData.coverageAmount}. Tobacco use: ${formData.tobaccoUse}. Best time to call: ${formData.bestTimeToCall}. ${agentNote} Consent given: Yes.`,
+          imported_info: `Submitted from North Image Financial Website. Coverage goal: ${formData.coverageAmount}. Tobacco use: ${formData.tobaccoUse}. Best time to call: ${formData.bestTimeToCall}. Consent given: Yes.`,
           notes: ""
         }
       ]);
@@ -659,7 +655,6 @@ function QuoteForm() {
         coverageAmount: "",
         tobaccoUse: "",
         bestTimeToCall: "",
-        preferredAgent: "",
         consentGiven: false,
         source: "Website"
       });
@@ -834,20 +829,6 @@ function QuoteForm() {
                     <option value="Afternoon">Afternoon</option>
                     <option value="Evening">Evening</option>
                     <option value="Anytime">Anytime</option>
-                  </select>
-                </div>
-
-                <div className="formGroup">
-                  <label htmlFor="preferredAgent">Preferred Agent</label>
-                  <select
-                    id="preferredAgent"
-                    name="preferredAgent"
-                    value={formData.preferredAgent}
-                    onChange={handleChange}
-                  >
-                    <option value="">No preference</option>
-                    <option value="Colby Lutz">Colby Lutz</option>
-                    <option value="Tre Blake">Tre Blake</option>
                   </select>
                 </div>
               </div>
