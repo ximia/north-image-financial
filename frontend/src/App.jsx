@@ -144,6 +144,11 @@ function Footer() {
           &copy; {new Date().getFullYear()} North Image Financial. Licensed
           across Washington State.
         </p>
+        <div className="footerLegal">
+          <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          <span className="footerLegalDivider">&middot;</span>
+          <a href="/terms-and-conditions.html" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+        </div>
       </div>
     </footer>
   );

@@ -760,6 +760,30 @@ a {
   font-family: 'DM Sans', sans-serif;
 }
 
+.footerLegal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.footerLegal a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.79rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footerLegal a:hover {
+  color: var(--gold);
+}
+
+.footerLegalDivider {
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 0.79rem;
+}
+
 /* ── Dashboard ── */
 .dashboardButtons button {
   border-radius: var(--radius-md);
